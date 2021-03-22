@@ -25,9 +25,13 @@ dependencies {
     implementation 'org.postgresql:postgresql'
     compile 'io.springfox:springfox-bean-validators:2.9.2'
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.7.7'
+
+
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     runtimeOnly 'com.h2database:h2'
 
