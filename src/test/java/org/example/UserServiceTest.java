@@ -28,19 +28,18 @@ public class UserServiceTest {
     UserService userService;
 
     @Test
-    public void saveUser(){
-//        when(userRepository.save(any(User.class))).thenReturn(new User());
-        UserDto userDto = new UserDto("login","name",new Date(), Gender.MALE);
+    public void saveUser() {
+        UserDto userDto = new UserDto("login", "name", new Date(), Gender.MALE);
         userService.save(userDto);
         verify(userRepository, times(1)).save(UserMapper.userDtoToUser(userDto));
     }
 
     @Test
-    public void getAllUsers(){
+    public void getAllUsers() {
         List<User> users = new ArrayList<>();
-        User user1 = new User("Lala","John Nicklson",new Date(), Gender.MALE);
-        User user2 = new User("Rjeey","Rosa White",new Date(), Gender.FEMALE);
-        User user3 = new User("Druid","Lola Lizariya",new Date(), Gender.FEMALE);
+        User user1 = new User("Lala", "John Nicklson", new Date(), Gender.MALE);
+        User user2 = new User("Rjeey", "Rosa White", new Date(), Gender.FEMALE);
+        User user3 = new User("Druid", "Lola Lizariya", new Date(), Gender.FEMALE);
 
         users.add(user1);
         users.add(user2);
@@ -51,11 +50,6 @@ public class UserServiceTest {
         List<User> empUsers = userService.getUsers();
 
         verify(userRepository, times(1)).findAll();
-
-
-
-
-
     }
 
 }
